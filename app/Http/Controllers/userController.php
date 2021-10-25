@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Student;
+use App\Models\User;
 
-
-class StudentController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('students.index',['student'=>$students]);
+        $users_crud = User::all();
+        return view('userCrud.index',['User'=>$users_crud]);
     }
 
     /**
@@ -26,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        return view('userCrud.create');
     }
 
     /**
@@ -38,11 +37,11 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //add data
-        Student::create($request->all());
-        
+        User::create($request->all());
+
         // if true, redirect to index
-        return redirect()->route('students.index')
-            ->with('success', 'Add data success!');
+        return redirect()->route('userCrud.index')
+        ->with('success', 'Add data success!');
     }
 
     /**
@@ -53,8 +52,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $student = Student::find($id);
-        return view('students.show',['student'=>$student]);
+        $users_crud = User::find($id);
+        return view('userCrud.userview',['User'=>$users_crud]);
     }
 
     /**
@@ -65,9 +64,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
-        return view('students.edit',['student'=>$student]);
-
+        $users_crud = User::find($id);
+        return view('userCrud.useredit',['User'=>$users_crud]);
     }
 
     /**
@@ -79,15 +77,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::find($id);
-        $student->nim = $request->nim;
-        $student->name = $request->name;
-        $student->class = $request->class;
-        $student->department = $request->department;
-        $student->phone_number = $request->phone_number;
-        $student->save();
-        return redirect()->route('students.index');
-
+        $users_crud = User::find($id);
+        $users_crud->username = $request->username;
+        $users_crud->name = $request->name;
+        $users_crud->email = $request->email;
+        $users_crud->password = $request->password;
+        $users_crud->save();
+        return redirect()->route('userCrud.index');
     }
 
     /**
@@ -98,15 +94,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::find($id);
-        $student->delete();
-        return redirect()->route('students.index');
-
-    }
-    public function search(Request $request)
-    {
-        $keyword = $request->search;
-        $student = student::where('name', 'like', "%" . $keyword . "%")->paginate(5);
-        return view('students.index', compact('student'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $users_crud = User::find($id);
+        $users_crud->delete();
+        return redirect()->route('userCrud.index');
     }
 }
