@@ -27,10 +27,14 @@
                                 {{ $student->name }}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Kelas :</strong>
-                                {{ $student->class }}
+                        <div class="card-header">{{ $student->nim }}</div>
+                            <div class="card-body">
+                                Name : {{ $student->name }} <br>
+                                Class : {{ $student->kelas->class_name }} <br>
+                                Department : {{ $student->department }} <br>
+                                Phone Number : {{ $student->phone_number }} <br>
+                                Created at : {{ $student->created_at }} <br>
+                                Updated at : {{ $student->updated_at }} <br>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">

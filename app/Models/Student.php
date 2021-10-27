@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     protected $fillable = ['nim','name','class', 'department', 'phone_number'];
+    public function kelas(){
+        return $this->belongsTo(Kelas::class, 'class_id');
+        }
 }
