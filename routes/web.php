@@ -28,3 +28,5 @@ Route::resource('students', StudentController::class);
 Route::resource('userCrud', userController::class);
 
 Route::get('/search', [StudentController::class, 'search'])->name('search');
+
+Route::get('students/{id}/detail', [StudentController::class, 'detail']);

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">{{ __('STUDENT DATA') }}</div>
 
@@ -49,6 +49,7 @@
                                 <td>
                                 <form action="/students/{{$s->id}}" method="post">
                                 @csrf
+                                <a href="/students/{{$s->id}}/detail" class="btn btn-info">Nilai</a>
                                 <a href="/students/{{$s->id}}" class="btn btn-success">View</a>
                                 <a href="/students/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
                                 @csrf
