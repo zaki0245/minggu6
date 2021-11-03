@@ -20,14 +20,8 @@
                                 <strong>Nim :</strong>
                                 {{ $student->nim }}
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Nama :</strong>
-                                {{ $student->name }}
-                            </div>
-                        </div>
-                        <div class="card-header">{{ $student->nim }}</div>
+                        </div>               
+                        <div><img width="150px" src="{{asset('storage/'.$student->photo)}}"></div>
                             <div class="card-body">
                                 Name : {{ $student->name }} <br>
                                 Class : {{ $student->kelas->class_name }} <br>

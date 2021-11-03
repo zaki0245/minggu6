@@ -16,6 +16,7 @@
 
                     <a href="/students/create" class="btn btn-primary">Add Data</a><br><br>
                     <form class="form" method="get" action="{{ route('search') }}">
+                    @csrf
                         <div class="form-group w-100 mb-3">
                             <label for="search" class="d-block mr-2">Pencarian</label>
                             <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama">
@@ -47,6 +48,7 @@
                                 <td>{{ $s->department}}</td>
                                 <td>
                                 <form action="/students/{{$s->id}}" method="post">
+                                @csrf
                                 <a href="/students/{{$s->id}}" class="btn btn-success">View</a>
                                 <a href="/students/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
                                 @csrf
