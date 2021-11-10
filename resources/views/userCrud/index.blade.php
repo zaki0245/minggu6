@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <div class="card">
             <div class="card-header">{{ __('USER DATA') }}</div>
 
@@ -23,6 +23,7 @@
                                 <th>username</th>
                                 <th>name</th>
                                 <th>email</th>
+                                <th>Role</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -32,6 +33,7 @@
                                 <td>{{$s->username}}</td>
                                 <td>{{$s->name}}</td>
                                 <td>{{$s->email}}</td>
+                                <td>{{$s->role }}</td>
                                 <td>
                                     <form action="/userCrud/{{$s->id}}" method="post">
                                         <a href="/userCrud/{{$s->id}}" class="btn btn-success">View</a>
